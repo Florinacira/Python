@@ -8,6 +8,7 @@
 # de preferat determinati daca studentul are nota de trecere sau nu folosindu`va de o alta functie a clasei Student
 
 class Student:
+#a
     def __init__(self, nume, nota):
         self.nume = nume
         self.nota = nota
@@ -17,9 +18,33 @@ class Student:
     
     def set_grade(self, noua_nota):
         self.nota = noua_nota
-
+        print(f'Noua nota este: {self.nota}')
+#b
     def descriere (self):
         print(f'The student`s name is {self.nume} and has the grade {self.nota}')
 
-    def students_list(self):
-        lst = input('Introduceti studentii:')
+my_student = Student('Alex',9)
+print(my_student.get_grade())
+my_student.set_grade(7)
+my_student.descriere()
+
+#c
+list_of_students = []
+while True:
+    student_name = input('Student name:')
+    if student_name == 'stop':
+       break
+    student_nota = int(input('Student nota: '))
+    student1 = Student(student_name, student_nota)
+    list_of_students.append(student1)
+for stud in list_of_students:
+    stud.descriere()
+#d
+new_list = []
+for stud in list_of_students:
+    if stud.get_grade() >= 5:
+        new_list.append(stud)
+for stud in new_list:
+    stud.descriere()
+
+
